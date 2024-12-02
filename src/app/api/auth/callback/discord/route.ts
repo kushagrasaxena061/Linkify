@@ -11,7 +11,9 @@ export async function GET(req: NextRequest) {
     data.append('grant_type', 'authorization_code')
     data.append(
       'redirect_uri',
-      'https://localhost:3000/api/auth/callback/discord'
+      // fix it
+      // 'https://localhost:3000/api/auth/callback/discord'
+      'https://linkify1.vercel.app/api/auth/callback/discord'
     )
     data.append('code', code.toString())
 
@@ -39,12 +41,16 @@ export async function GET(req: NextRequest) {
       const UserGuild = UserGuilds.data.filter(
         (guild: any) => guild.id == output.data.webhook.guild_id
       )
-
+      // fix it
+      // return NextResponse.redirect(
+      //   `https://localhost:3000/connections?webhook_id=${output.data.webhook.id}&webhook_url=${output.data.webhook.url}&webhook_name=${output.data.webhook.name}&guild_id=${output.data.webhook.guild_id}&guild_name=${UserGuild[0].name}&channel_id=${output.data.webhook.channel_id}`
+      // )
       return NextResponse.redirect(
-        `https://localhost:3000/connections?webhook_id=${output.data.webhook.id}&webhook_url=${output.data.webhook.url}&webhook_name=${output.data.webhook.name}&guild_id=${output.data.webhook.guild_id}&guild_name=${UserGuild[0].name}&channel_id=${output.data.webhook.channel_id}`
+        `https://linkify1.vercel.app/connections?webhook_id=${output.data.webhook.id}&webhook_url=${output.data.webhook.url}&webhook_name=${output.data.webhook.name}&guild_id=${output.data.webhook.guild_id}&guild_name=${UserGuild[0].name}&channel_id=${output.data.webhook.channel_id}`
       )
     }
-
-    return NextResponse.redirect('https://localhost:3000/connections')
+    // fix it
+    // return NextResponse.redirect('https://localhost:3000/connections')
+    return NextResponse.redirect('https://linkify1.vercel.app/connections')
   }
 }
