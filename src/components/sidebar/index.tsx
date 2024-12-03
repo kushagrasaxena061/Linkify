@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
@@ -26,7 +27,15 @@ const MenuOptions = (props: Props) => {
           className="flex font-bold flex-row "
           href="/"
         >
-          Linkify
+           <p className="text-3xl font-bold">Link</p>
+        <Image
+          src="/fuzzieLogo.png"
+          width={15}
+          height={15}
+          alt="fuzzie logo"
+          className="shadow-sm"
+        />
+        <p className="text-3xl font-bold">fy</p>
         </Link>
         <TooltipProvider>
           {menuOptions.map((menuItem) => (
